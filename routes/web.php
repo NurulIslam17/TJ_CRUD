@@ -1,18 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CrudController;
+//add product form
+Route::get('/',[CrudController::class,"addProduct"]);
+// addProduct
+Route::post('/addProduct',[CrudController::class,"upProduct"]);
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// View Page
+Route::get('/view',[CrudController::class,"viewPage"]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//delete data
+Route::get('/del/{id}',[CrudController::class,"deleteData"]);
