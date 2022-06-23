@@ -43,4 +43,27 @@ class CrudController extends Controller
         $del->delete();
         return redirect()->back();
     }
+
+    //edit data
+    public function edit($id)
+    {
+        $data = Crud::find($id);
+        return view('edit',compact('data'));
+    }
+
+    //updateProduct
+    public function updateProduct(Request $request,$id){
+        $update = Crud::find($id);
+
+        $update->name = $request->editName;
+        $update->desc = $request->editDes;
+
+        $updImg = $request->editImg;
+        $updImgName = time().' . '.$updImg->getClientOriginalExtension();
+        $updImg->move("ProductFolder",$updImgName);
+        
+        $update->img = $updImgName;
+        $update ->save();
+        return redirect('/view');
+    }
 }

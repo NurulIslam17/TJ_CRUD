@@ -65,29 +65,41 @@
         font-size: 20px;
         
     }
+    .inpDivImg{
+      text-align: center;
+    }
+    .inpDiv img{
+      height: 200px;
+      width: 230px;
+    }
   </style>
 </head>
 
 <body>
   <div class="main">
     <div class="tableDiv">
-      <h1>Add Product</h1>
-      <form action="{{url('/addProduct')}}" method="post" enctype="multipart/form-data">
+      <h1>Edit Product Data</h1>
+      <form action="{{url('/updateProduct',$data->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="inpDiv">
           <label>Product Name</label>
-          <input type="text" name="pName" placeholder="Enter Product Name" />
+          <input type="text" name="editName" value="{{$data->name}}" placeholder="Enter Product Name" />
         </div>
         <div class="inpDiv">
           <label>Description</label>
-          <input type="text" name="pDes" placeholder="Enter Description" />
+          <input type="text" name="editDes" value="{{$data->desc}}" placeholder="Enter Description" />
+        </div>
+        <div class="inpDiv inpDivImg">
+          <label>Old Image</label><br/>
+          <img src="/ProductFolder/{{$data->img}}" alt="Not Found"/>
         </div>
         <div class="inpDiv">
           <label>Product Image</label>
-          <input type="file" name="pImg" />
+          <input type="file" name="editImg" />
         </div>
+
         <div class="inpDiv btnDiv">
-          <input type="submit" value="Add Product" />
+          <input type="submit" value="Update Product" />
           <a href="{{url('/view')}}">View Product</a>
         </div>
       </form>

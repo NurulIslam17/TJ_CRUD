@@ -111,7 +111,7 @@
               <img src="/ProductFolder/{{$x->img}}" alt="Not Found">
             </td>
             <td class="btn-group">
-              <a href="{{url('/upd',$x->id)}}" class="btn upd">Update</a>
+              <a href="{{url('/edit',$x->id)}}" class="btn upd">Update</a>
               <a href="{{url('/del',$x->id)}}" class="btn del">Delete</a>
             </td>
           </tr>

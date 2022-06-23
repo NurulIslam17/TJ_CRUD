@@ -12,3 +12,7 @@ Route::get('/view',[CrudController::class,"viewPage"]);
 
 //delete data
 Route::get('/del/{id}',[CrudController::class,"deleteData"]);
+//edit
+Route::get('/edit/{id}',[CrudController::class,"edit"]);
+//updateProduct
+Route::post('/updateProduct/{id}',[CrudController::class,"updateProduct"]);
